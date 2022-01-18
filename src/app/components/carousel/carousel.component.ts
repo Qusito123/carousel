@@ -11,7 +11,7 @@ export class CarouselComponent implements OnInit {
   @Input() height = 500; // Initialize the height of component
   @Input() isFullScreen = false; // Initialize if component is fullscreen
   @Input() items: ICarousel[] = []; // Initialize the items as empty
-  @Input() autoScroll = false; // Initialize autoScroll in false
+  @Input() autoScroll = true; // Initialize autoScroll in false
   @Input() time = 2000; // Initialize time in 2s
 
   // Final properties
@@ -29,8 +29,8 @@ export class CarouselComponent implements OnInit {
       i.marginLeft = 0;
     });
 
-    // Checks if component is full page size
-    if(this.isFullScreen) this.finalHeight = '100vh';
+    // Checks if component is full page size or gives the value of the height
+    this.isFullScreen ? this.finalHeight = '100vh' : `${this.height}px`;
 
     // Checks if component has auto scroll
     if(this.autoScroll) this.Repeat();
