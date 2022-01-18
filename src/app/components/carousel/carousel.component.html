@@ -1,1 +1,18 @@
-<p>carousel works!</p>
+<div class="mycarousel" [ngStyle]="{'min-height': finalHeight}">
+    <div class="mycarousel-btns">
+        
+            <span class="material-icons mycarousel-icons" (click)="setPreviousPosition()">chevron_left</span>
+                <span class="material-icons mycarousel-icons" (click)="setNextPosition()">chevron_right</span>
+    </div>
+    <div class="mycarousel-content">
+        <ng-container *ngFor="let item of items;">
+            <div class="mycarousel-item" [ngStyle]="{'background-image': 'url(' + item.image + ')', 'margin-left': item.marginLeft + '%'}">
+                <h1>{{ item.title.first }} <span>{{ item.title.second }}</span></h1>
+                <p>{{ item.subtitle }}</p>
+            </div>
+        </ng-container>
+    </div>
+    <div class="mycarousel-steps">
+        <div class="mycarousel-step mycarousel-step-{{currentPosition === item.id ? 'active' : ''}}" *ngFor="let item of items" (click)="setCurrentPosition(item.id)"></div>
+    </div>
+</div>

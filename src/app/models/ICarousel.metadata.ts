@@ -1,3 +1,4 @@
+// Interface of the content that an item in carousel has
 export interface ICarousel {
     id: number;
     title?: {
@@ -7,7 +8,5 @@ export interface ICarousel {
     subtitle?: string;
     link?: string;
     image: string;
-    order?: number;
     marginLeft?: number;
-    time?: number;
 }
